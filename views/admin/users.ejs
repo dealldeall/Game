@@ -1,0 +1,130 @@
+	<div>
+		<h2><a name="edit">View & Edit</a></h2>
+		<form method="POST" action="user/view">
+			<fieldset>
+				<table class="table table-striped" >
+					<tr>
+						<th>
+							<label>
+								id
+								<br><input class="input-medium" name="id" type="text" placeholder="id">
+							</label>
+						</th>
+						<th>
+							<label>
+								email
+								<br><input class="input-medium" name="email" type="email" placeholder="email">
+							</label>
+						</th>
+						<th>
+							<label>
+								username
+								<br><input class="input-small" name="username" type="text" placeholder="name">
+							</label>
+						</th>
+						<th>
+							<label>
+								subscription
+								<label class="checkbox">
+									<input type="checkbox" name="subscription">
+									active
+								</label>
+							</label>
+						</th>
+						<th>
+							<label>
+								avatar
+								<br><select class="input-mini" name="avatar">
+									<option value="1">1</option>
+									<option value="2">2</option>
+								</select>
+							</label>
+						</th>
+						<th>
+							<label>
+								gender
+								<br><select class="input-small" name="gender">
+									<option value="male">male</option>
+									<option value="female">female</option>
+								</select>
+							</label>
+						</th>
+						<th>
+							<label>
+								race
+								<br><select class="input-small" name="race">
+									<option value="human">human</option>
+									<option value="raksasah">raksasah</option>
+									<option value="seylees">seylees</option>
+								</select>
+							</label>
+						</th>
+						<th>
+							<br>
+							<button class="btn btn-primary" type="submit">apply</button>
+						</th>
+					</tr>
+					<% for(var idx in users) {
+						var user = users[idx];
+					%>
+					<tr>
+						<td><span><%=user.id%></span></td>
+						<td><span><%=user.email%></span></td>
+						<td><span><%=user.profile.username%></span></td>
+						<td><span><%=user.subscriptionTo.toISOString().replace(/T/, ' ').replace(/\..+/, '') %></span></td>
+						<td><span><%=user.profile.avatar%></span></td>
+						<td><span><%=user.profile.gender%></span></td>
+						<td><span><%=user.profile.race%></span></td>
+						<td>
+							<span>
+								<a href="user/<%=user.id%>" class="btn">Details</a>
+							</span>
+						</td>
+					</tr>
+					<% }%>
+				</table>
+			</fieldset>
+		</form>
+	</div>
+	<div>
+		<h2><a name="dangerous">Dangerous function</a></h2>
+
+		<div class="row">
+
+			<div class="span4">
+				<form method="POST" action="user/clean" class="form-inline ajax">
+					<fieldset>
+						<legend>Clean all profiles</legend>
+						<label class="checkbox">
+							<input type="checkbox" protector="true">
+							Yes, clean all profiles.
+						</label>
+						<button type="submit" class="btn btn-danger" disabled>Submit</button>
+					</fieldset>
+				</form>
+			</div>
+
+			<div class="span4">
+				<form method="POST" action="user/remove" class="form-inline ajax">
+					<fieldset>
+						<legend>Remove user profile</legend>
+
+						<label>
+							<span class="span1">uid</span>
+							<input type="test" name="uid">
+						</label>
+
+						<label class="checkbox">
+							<input type="checkbox" protector="true">
+							Yes, remove this profile.
+						</label>
+
+						<button type="submit" class="btn btn-danger" disabled>Submit</button>
+					</fieldset>
+				</form>
+			</div>
+
+			<div class="span4">
+			</div>
+		</div>
+	</div>

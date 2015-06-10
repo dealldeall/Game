@@ -1,0 +1,420 @@
+<div class="widget profile clearfix">
+	<div class="actions-panel">
+		<ol class="no-style">
+			<li class="ui-form close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+					<g fill="#fff">
+						<g transform="matrix(7.5 0 0 7.50001 -12524.0018 -3436.71945)">
+							<path d="m1686,806 10,10-10,10 8,8 10-10 10,10 8-8-10-10 10-10-8-8-10,10-10-10z" transform="translate(0 -323.6378)"/>
+						</g>
+					</g>
+				</svg>
+
+				<form action="hide" class="widget">
+					<input type="hidden" name="widget" value="profile">
+					<input type="submit" value="close">
+				</form>
+			</li>
+		</ol>
+	</div>
+
+	<nav class="clearfix">
+		<ol class="no-style">
+			<li><b><%= user.profile.username %></b></li>
+			<li><%- ( user.team[0].id )? user.team[0].profile.username : '<i>empty</i>'%></li>
+			<li><%- ( user.team[1].id )? user.team[1].profile.username : '<i>empty</i>'%></li>
+		</ol>
+	</nav>
+
+	<div class="clearfix">
+		<div class="three-column">
+			<div class="ui-avatar" data-race="<%=user.profile.race%>" data-gender="<%=user.profile.gender%>" data-item="<%=user.profile.avatar%>">
+			</div>
+
+			<h3><%-i18n.__('widget-profile: header-base-mod')%></h3>
+			<table>
+				<tr>
+					<td><%= i18n.__('mod: health') %></td>
+					<td><span class="ui-variable" name="mod-health" uid="<%=user.id%>"><%= user.mod.health %></span>
+				</tr>
+				<tr>
+					<td><%= i18n.__('mod: fortitude') %></td>
+					<td><span class="ui-variable" name="mod-fortitude" uid="<%=user.id%>"><%= user.mod.fortitude%></span>
+				</tr>
+				<tr>
+					<td><%= i18n.__('mod: martial-arts') %></td>
+					<td><span class="ui-variable" name="mod-martial-arts" uid="<%=user.id%>"><%= user.mod['martial-arts']%></span>
+				</tr>
+			</table>
+		</div>
+
+		<div class="three-column">
+			<h3><%-i18n.__('widget-profile: header-base-stat')%></h3>
+			<table>
+				<tr>
+					<td>
+						<%= i18n.__('stat: hp') %>
+					</td>
+					<td>
+						<div class="ui-counter" name="health-point" uid="<%=user.id%>">
+							<div class="bar"></div>
+							<div class="label">
+								<div>
+									<%= (user.counters['health-point']) ? user.counters['health-point'] : user.stat['health-point']%>
+								</div>
+								<div>
+									/
+								</div>
+								<div>
+									<span class="ui-variable" name="stat-health-point" uid="<%=user.id%>">
+										<%=user.stat['health-point']%>
+									</span>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td><%= i18n.__('stat: attack') %></td>
+					<td>
+						<span class="ui-variable" name="stat-attack" uid="<%=user.id%>">
+							<%= user.stat.attack%>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td><%= i18n.__('stat: armor') %></td>
+					<td>
+						<span class="ui-variable" name="stat-armor" uid="<%=user.id%>">
+							<%= user.stat.armor%>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td><%= i18n.__('stat: resistance') %></td>
+					<td>
+						<span class="ui-variable" name="stat-resistance" uid="<%=user.id%>">
+							<%= user.stat.resistance%>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td><%= i18n.__('stat: dodge-rate') %></td>
+					<td>
+						<span class="ui-variable percent" name="stat-dodge-rate" uid="<%=user.id%>">
+							<%= user.stat['dodge-rate'] * 100%>%
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td><%= i18n.__('stat: block-rate') %></td>
+					<td>
+						<span class="ui-variable percent" name="stat-block-rate" uid="<%=user.id%>">
+							<%= user.stat['block-rate'] * 100%>%
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td><%= i18n.__('stat: crit-rate') %></td>
+					<td>
+						<span class="ui-variable percent" name="stat-crit-rate" uid="<%=user.id%>">
+							<%= user.stat['crit-rate'] * 100%>%
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= i18n.__('stat: energy') %>
+					</td>
+					<td>
+						<div class="ui-counter" name="energy" uid="<%=user.id%>">
+							<div class="bar"></div>
+							<div class="label">
+								<div>
+									<%=(user.counters.energy) ? user.counters.energy : user.stat.energy%>
+								</div>
+								<div>
+									/
+								</div>
+								<div>
+									<span class="ui-variable" name="stat-energy" uid="<%=user.id%>">
+										<%=user.stat.energy%>
+									</span>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= i18n.__('stat: adrenaline') %>
+					</td>
+					<td>
+						<div class="ui-counter" name="adrenaline" uid="<%=user.id%>">
+							<div class="bar"></div>
+							<div class="label">
+								<div>
+									<%=(user.counters.adrenaline) ? user.counters.adrenaline : user.stat.adrenaline%>
+								</div>
+								<div>
+									/
+								</div>
+								<div>
+									<span class="ui-variable" name="stat-adrenaline" uid="<%=user.id%>">
+										<%=user.stat.adrenaline%>
+									</span>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="three-column">
+		<h3><%-i18n.__('widget-profile: header-equipment')%></h3>
+		<div class="ui-items clearfix">
+			<ul class="equipment no-style">
+				<%
+					var equipmentClass = ['bracelets', 'clothing', 'hands', '', 'patronage', 'amulet', 'ring', 'ring', 'ring'];
+					for(var classIdx in equipmentClass) {
+						var className = equipmentClass[classIdx];
+						if( className == '' ) {
+				%>
+				<li class="empty">
+
+				</li>
+						<% } else { %>
+				<li class="<%-className%><%-(user.data.equipmentSlot[className])?'':' disable'%>" droppable="true">
+
+							<%	var item = user.equipment[className];
+								if( item.id ) {
+							%>
+					<div class="ui-item <%-item.original.name%>" equipment-type="<%-item.original.type%>" draggable="true" item-id="<%-item.id%>">
+						<div class="quality gray"></div>
+						<div class="tip">
+							<h4 class="no-style gray">
+								<%-i18n.__('item: ' + item.original.name)%>
+								<div class="type"><%-item.original.type%></div>
+							</h4>
+							<!-- add-bonus -->
+							<%
+							if( item.original.data.addBonus ) { %>
+							<table class="add-bonus">
+								<% for(var baseBonusName in item.original.data.addBonus) {
+									var value = item.original.data.addBonus[baseBonusName];
+									if( typeof value == 'number' && value >= 0 ) {
+										value = '+' + value;
+									}
+								%>
+								<tr>
+									<th><%-i18n.__('stat: ' + baseBonusName)%></th>
+									<td>
+										<%=value%>
+									</td>
+								</tr>
+								<% } %>
+							</table>
+							<% } %>
+							<!-- add-bonus END-->
+							<!-- base-mod -->
+							<%
+							if( item.original.data.baseMod ) { %>
+							<table class="add-bonus">
+								<% for(var name in item.original.data.baseMod) {
+									var value = item.original.data.baseMod[name];
+									if( typeof value == 'number' && value >= 0 ) {
+										value = '+' + value;
+									}
+								%>
+								<tr>
+									<th><%-i18n.__('mod: ' + name)%></th>
+									<td>
+										<%=value%>
+									</td>
+								</tr>
+								<% } %>
+							</table>
+							<% } %>
+							<!-- base-mod END-->
+							<!-- base-bonus -->
+							<% if( item.original.data.baseBonus ) { %>
+							<table class="base-bonus">
+								<% for(var baseBonusName in item.original.data.baseBonus) {
+									var value = item.original.data.baseBonus[baseBonusName];
+									if(value >= 0 ) {
+										value = '+' + value;
+									}
+								%>
+								<tr>
+									<th><%-i18n.__('stat: ' + baseBonusName)%></th>
+									<td>
+										<%=value%>
+									</td>
+								</tr>
+								<% } %>
+							</table>
+							<% } %>
+							<!-- base-bonus END-->
+							<div class="descr">
+								<%-i18n.__('item: ' + item.original.name + '-descr')%>
+							</div>
+						</div>
+					</div>
+							<% } %>
+						<% } %>
+				</li>
+					<% } %>
+			</ul>
+
+			<div class="ui-extra-slot ui-items clearfix">
+				<ul class="no-style">
+					<li class="disable extra" droppable="true"></li>
+					<li class="disable extra" droppable="true"></li>
+					<li class="disable extra" droppable="true"></li>
+					<li class="disable extra" droppable="true"></li>
+					<li class="disable extra" droppable="true"></li>
+					<li class="disable extra" droppable="true"></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="three-column-big">
+			<h3><%-i18n.__('widget-profile: header-backpack')%></h3>
+			<div class="ui-items clearfix">
+				<ul class="backpack no-style">
+					<% for(var backpackIdx in user.backpack) {
+						var item = user.backpack[backpackIdx];
+						if( typeof item != 'object' ) {
+					%>
+					<li droppable="true">
+					</li>
+					<%
+						continue; }
+					%>
+					<li droppable="true">
+						<div class="ui-item <%-item.original.name%>" equipment-type="<%-item.original.type%>" draggable="true" item-id="<%-item.id%>">
+							<div class="quality gray"></div>
+							<div class="tip">
+								<h4 class="no-style gray">
+									<%-i18n.__('item: ' + item.original.name)%>
+									<div class="type"><%-item.original.type%></div>
+								</h4>
+								<!-- add-bonus -->
+								<%
+								if( item.original.data.addBonus ) { %>
+								<table class="add-bonus">
+									<% for(var baseBonusName in item.original.data.addBonus) {
+										var value = item.original.data.addBonus[baseBonusName];
+										if( typeof value == 'number' && value >= 0 ) {
+											value = '+' + value;
+										}
+									%>
+									<tr>
+										<th><%-i18n.__('stat: ' + baseBonusName)%></th>
+										<td>
+											<%=value%>
+										</td>
+									</tr>
+									<% } %>
+								</table>
+								<% } %>
+								<!-- add-bonus END-->
+								<!-- base-mod -->
+								<%
+								if( item.original.data.baseMod ) { %>
+								<table class="add-bonus">
+									<% for(var name in item.original.data.baseMod) {
+										var value = item.original.data.baseMod[name];
+										if( typeof value == 'number' && value >= 0 ) {
+											value = '+' + value;
+										}
+									%>
+									<tr>
+										<th><%-i18n.__('mod: ' + name)%></th>
+										<td>
+											<%=value%>
+										</td>
+									</tr>
+									<% } %>
+								</table>
+								<% } %>
+								<!-- base-mod END-->
+								<!-- base-bonus -->
+								<% if( item.original.data.baseBonus ) { %>
+									<table class="base-bonus">
+										<% for(var baseBonusName in item.original.data.baseBonus) {
+											var value = item.original.data.baseBonus[baseBonusName];
+											if(value >= 0 ) {
+												value = '+' + value;
+											}
+										%>
+										<tr>
+											<th><%-i18n.__('stat: ' + baseBonusName)%></th>
+											<td>
+												<%=value%>
+											</td>
+										</tr>
+										<% } %>
+									</table>
+								<% } %>
+								<!-- base-bonus END-->
+								<div class="descr">
+									<%-i18n.__('item: ' + item.original.name + '-descr')%>
+								</div>
+							</div>
+						</div>
+					</li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+
+		<div class="three-column">
+			<h3><%-i18n.__('widget-profile: header-skills')%></h3>
+			<div class="ui-items clearfix">
+				<ul class="skills no-style">
+					<li droppable="true">
+						<div class="ui-item skill-fireball" skill-type="damage" draggable="true" skill-id="52e85e7fc5a024fc17000003">
+							<div class="quality gray"></div>
+							<div class="tip">
+								<h4 class="no-style gray">
+									<%-i18n.__('skill: fireball')%>
+									<div class="type">damage</div>
+								</h4>
+								<table class="base-bonus">
+									<tr>
+										<th><%-i18n.__('stat: power')%></th>
+										<td>50</td>
+									</tr>
+									<tr>
+										<th><%-i18n.__('stat: energy')%></th>
+										<td>-5</td>
+									</tr>
+								</table>
+								<div class="descr">
+									<%-i18n.__('skill: fireball-descr')%>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li droppable="true"></li>
+					<li droppable="true"></li>
+					<li droppable="true"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="warehouse clearfix">
+		<h3 class="clearfix"><%-i18n.__('widget-profile: header-warehouse')%></h3>
+		<div class="ui-items clearfix">
+			<ul class="warehouse no-style">
+				<% for(i=0;i<30;i++) { %>
+				<li droppable="true"></li>
+				<% } %>
+			</ul>
+		</div>
+	</div>
+</div>

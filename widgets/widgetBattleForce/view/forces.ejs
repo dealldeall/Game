@@ -1,0 +1,44 @@
+<ol class="no-style">
+	<% for (var teamIdx = 0; teamIdx < 5; teamIdx++) { %>
+		<li class="team clearfix">
+			<ol class="no-style clearfix">
+				<% for (var characterIdx = 0; characterIdx < 3; characterIdx++) { %>
+					<li class="ui-character">
+						<div class="top">
+							<h3 class="no-style">t<%-teamIdx%>, c<%-characterIdx%></h3>
+							<div class="ui-avatar">
+							</div>
+						</div>
+
+						<div class="counters" >
+							<div class="ui-counter" name="health-point">
+								<div class="bar"></div>
+								<div class="label">
+									<div>--</div>
+									<div>/</div>
+									<div>--</div>
+								</div>
+							</div>
+							<div class="ui-counter" name="energy">
+								<div class="bar"></div>
+								<div class="label">
+									<div>--</div>
+									<div>/</div>
+									<div>--</div>
+								</div>
+							</div>
+							<div class="ui-counter" name="adrenaline">
+								<div class="bar"></div>
+								<div class="label">
+									<div>--</div>
+									<div>/</div>
+									<div>--</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				<% } %>
+			</ol>
+		</li>
+	<% } %>
+</ol>

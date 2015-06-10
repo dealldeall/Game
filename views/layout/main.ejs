@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> Masters Way - <%= title %> </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- jQuery-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- Bootstrap & Normalize-->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="stylesheet" href="/css/layout/main.css">
+    <link rel="stylesheet" href="/css/template/<%= template %>.css">
+
+    <!-- Socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/layout/main.js"></script>
+    <script src="/js/template/<%= template %>.js"></script>
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+<body>
+
+<div id="wrapper">
+    <header class="clearfix">
+        <div class="col-md-9">
+            <div class="row">
+                <h1 class="no-style col-md-3">
+                    <a href="/" class="no-style"
+                        <% if( __('game-name') != 'Masters Way') { %>
+                            title="<%- __('game-name') %>"
+                        <% } %>
+                    >
+                        Masters Way
+                    </a>
+                </h1>
+
+                <div class="col-md-9">
+                    <form method="get">
+
+                        <button type="submit" class="no-style" name="lang" value="ua">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAIAAAAUMWhjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDRFMDJBRjA2NjBGMTFFNDlFQ0RFMjhDMDc1RjRDOEMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDRFMDJBRUY2NjBGMTFFNDlFQ0RFMjhDMDc1RjRDOEMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OEYwQTAwNkYzNzNEMTFFMkE0QzlCODcxNDA5QkFGQTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OEYwQTAwNzAzNzNEMTFFMkE0QzlCODcxNDA5QkFGQTAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7RdXt4AAADq0lEQVR42pRVy24kRRDMrMrq13jGHnvNsoI9IyHBic/gwpUvQ9rf4MYX8AesEAihtXdBZj0e96O6qjKTbO/Vc+hWa1rTmsnIioiMRCkap3yHCXyVfSgIxYEgAKoD9plgzbVRyAWmKV9fhcPH4+vLHd0e409v3kRfiaOCVUEv6AAEMBsQMK4CiBNe7LaFU+sV8/TjD9/Tu4eY26uvvvmORbM6xqVlVHDLSTS5eRWAhC0RlWHAFI8fbqm5oin5kat/xpS5JFErDuqcKNkDcKR1AGOY8lwapJfd2QzuYRjpvNv2h7RzMnOZNYFDBGel7Yge3cR+FcDU9L721uQMOfJMjaMY59A2Q85DmmZOjhDRG11ePGFdWFcBJDe4QqxGL499zJmJa3ksk59djC6afdQbO8yLg7wzV02rANxMeVInznVdhedYGppghE0Ye52SRAVtVEkKO2HxDrq0DoAm8RK4uJihTIGgIp9hPh7787/zIoPKaG9DI3UoAiX3zfManHJvacs8lH198TD3bXi4g3vKqQHfzX0wC6UiYudDVFFm+7ncn9BYTwCozl7qfjzsW6t2pHOlTdXF4eN9+1kWLsILj6CkmRbHyikJ3AmK2sAg6fHwb7MjmO5SKoT92y+av/rxj1rsKgrscPEm2hiL7srzrXp5HqCu2ejbZt6n7qyt6fAnvr/5eeDfthdvVRl0cY8xBFjMT/aG0a8C0ArMFsHv5smDXNfua5Lp1+v975vyyxIPKk8ptNxsAChU1mURg0/Zte2rmDdN++2H9zXVG1IcJcgTAC7yPU0xe7FMpROdwglcG52WVIZ7TmXQ41SUDkPYNVed5dxS3S23/d2ywsojZPf8JPMJlatSXBNiTG4Ho/R6KbSjy+r+P9xcQ+iFDrYOlCvkJqgLC1fx2ULhxMmi9k24hH4OFQZWnCIBfgq4AOqdLuZ0+qntRQ9dqQHCBmKQApwrTsFJR4l71vkMyzIlpoNNlzOG0iK1s/LVuqiwdaIYLFG1kWQdB5rtSZRx8DggTIBsNy+R/bTZgFcB2MayQAjVGTrOxcKTlzWZuNUKxXn01cIME3jrw7Z05rRuJzMWp3NVbUthG1t0Qr6+iv1e9LVqRE226lUqXbZNsrVh0bpOAzwoVKL7nM/s01dbarsv+8O725sHdMnOhUzKDSotX71hlFUAnoRnkzqkbHK83G5fkffnjx/dzV1l+2XhR1osnZqjMKOPAsMqgACbZENgEhLuP7/YvXjxvwADANJUShe8SdTZAAAAAElFTkSuQmCC"/>
+                        </button>
+                        <button type="submit" class="no-style" name="lang" value="ru">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAIAAAAUMWhjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDRFMDJBRjQ2NjBGMTFFNDlFQ0RFMjhDMDc1RjRDOEMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDRFMDJBRjM2NjBGMTFFNDlFQ0RFMjhDMDc1RjRDOEMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OEYwQTAwNkYzNzNEMTFFMkE0QzlCODcxNDA5QkFGQTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OEYwQTAwNzAzNzNEMTFFMkE0QzlCODcxNDA5QkFGQTAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz695vTgAAADwElEQVR42pRWy27rNhCdGQ4pW7LjOMm9uS0u0MeyP9Bdd131B/p3/YLuuuu2m/5C0UWLNEV887IjWRIpktORi4uigLQIIRgSJcwhzzlzaHzxL5kwxti33pFZmAJeMzLIvzco//3qsA71lXWOiz5StYBFsTbOWZczvQpAECYBxmmCu/t79g9PJqzL7QaEIAGZVwJ8vEH8/3ProSien2q+6e1X79+C72G56BAWuunpQjI534nR1RpdroARoAxKzfgtmiQxVwWLJIGcojdChErRMFnIkJmcdziyoRdhHjeBpMyMAIaJoQ8dG/1ExSWnLzJ4Q9MUZUmT85S1akbKusrTHkmUaqCYMrINKbPPQ6ui8zJB6nxPrpwshIiT86w7QBKMMpKkIoIYFsBkjJw8wNXl+U3Tn68WDkx2VTMn5rQ0wPlkGbLqPjlxIzLKmBBiC5vVJd/cffjhpx99KKFXfSTCjAZmWgMakZWi9NFAKHkUm126cub7777lYnPx211tl29MWFilyYXJQmmY1iCdDEoQUWFGmgiFFfTM9P3t7qK6ZFOUhw4368uu5+GlS+U0F6QumBrxZBwjUQubDJRQAdSppu+63aGyFQ9HfMvv/7gdWltmw9f99A5gRuRgvDbzQCNNqojaRYEQ+Nbb9xt+8cAxhtQ3ubcpQcyyS/V0fZluNDMqcAIYXY4gPO5WMXGQIu/bjjWUnD9UfdYW8yozxRkbTQO4yAqgq49G0phE4aQ8rDXlWHAx8BKGbfuI7fElNq2hJPZVANXACSkqgCYZaVSm0VcYy4Z6ebI28Cp0nxx27xqqXdEaS8nOUIFzea0ACXUfONoIA+GgPbCx60N+XOaatyl83uyu6twTNdYtZxiiGQCvIoMTsRl4jAiJRuckIpcftngWFCCHL9r9l8cuZ3nRSArtq+I62jqLA1maVJiMNicrA0toyup3WFxEDTvvN8f9u6aFGFcEBTavclFOe8gOU2VS5RIWqmEOirE3/d8PUhriwbWBaEWrY38v55h9NbPW6U7e1GVdxGaREtWLAVaBbBoboglKkPMdMAff7J+Bt9qCBTP7OHv6TsISnTrgFHOoj+Opqdf2rBzaJ0qe0ZVhWXTL1ZPf94wX5yXMyTw1yqMVl8ElbaAiwpI1k1lP313sa+WqIH4azF/nFz83x7h27voMHx5nAHhy9gpJXdFqmwjp/5FCTzZ1LeGRobn6tEaH9ePzn7/8SvtDF+r7/vnNTKFTKEwRl6vWadBoyGc9b1UAGRPPXMuqXRefffP1PwIMANVV/8Vf8TTjAAAAAElFTkSuQmCC"/>
+                        </button>
+                        <button type="submit" class="no-style" name="lang" value="en">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAIAAAAUMWhjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDRFM0FENkI2NjBGMTFFNDlFQ0RFMjhDMDc1RjRDOEMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDRFM0FENkE2NjBGMTFFNDlFQ0RFMjhDMDc1RjRDOEMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OEYwQTAwNkYzNzNEMTFFMkE0QzlCODcxNDA5QkFGQTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OEYwQTAwNzAzNzNEMTFFMkE0QzlCODcxNDA5QkFGQTAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz48leRdAAAIUElEQVR42hRVaXAVVRY+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"/>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <ol class="col-md-1 no-style">
+
+            <li>
+                <a href="http://slave-maker-online.blogspot.com/" class="font-icon icon-blogger" title="blogger"></a>
+            </li>
+            <li>
+                <a href="https://twitter.com/MastersWayGame" class="font-icon icon-twitter" title="twitter"></a>
+            </li>
+        </ol>
+
+        <ol class="col-md-2 no-style">
+            <li>
+                <a href="/mythology">
+                    <%- __('site-menu: mythology') %>
+                </a>
+            </li>
+            <li>
+                <a href="/faq">
+                    <%- __('site-menu: faq') %>
+                </a>
+            </li>
+        </ol>
+    </header>
+    <div id="content" class="row">
+        <%- content %>
+    </div>
+    <footer class="clearfix text-center">
+        <a href="mailto:support@masters-way.sx">support@masters-way.sx</a>
+    </footer>
+</div>
+</body>
+</html>

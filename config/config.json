@@ -1,0 +1,218 @@
+{
+	"host" : {
+		"main" : "http://masters-way.sx"
+		,"dev" : "http://localhost"
+	}
+	,"port" : 80
+	,"session" : {
+		"secret" : "dsgfewew"
+		,"key": "sid"
+		,"cookie": "sid"
+	}
+  	,"translate" : {
+		"list" : [
+			"en"
+			,"ru"
+			,"ua"
+		]
+  		,"default" : "en"
+	}
+	,"admin" : {
+		"acpLink" : ""
+		,"acpLinkDev" : "acp"
+	}
+	,"oauth" : {
+		"vk" : {
+			"site" : "https://oauth.vk.com"
+			,"id" : 4636354
+			,"secret" : "f6mIiPp8c9P7M2WX5C1O"
+			,"callbackUri" : "/auth/oauth/vk"
+			,"authorizationUri" : "/authorize"
+			,"tokenGetUri" : "/access_token"
+			,"apiVersion" : "5.26"
+		}
+		,"fb" : {
+            "site" : "https://"
+            ,"id" : 609874729143897
+            ,"secret" : "b71b97488545f31b6641adf997944b39"
+            ,"callbackUri" : "/auth/oauth/fb"
+            ,"authorizationUri" : "facebook.com/dialog/oauth"
+            ,"tokenGetUri" : "graph.facebook.com/oauth/access_token"
+		}
+        ,"gl" : {
+            "site" : "https://"
+            ,"id" : 1094351876639
+            ,"secret" : "b71b97488545f31b6641adf997944b39"
+            ,"callbackUri" : "/auth/oauth/gl"
+            ,"authorizationUri" : "accounts.google.com/o/oauth2/auth"
+            ,"tokenGetUri" : "graph.facebook.com/oauth/access_token"
+        }
+		,"twit" : {
+			"consumerKey" : ""
+			,"consumerSecret" : ""
+		}
+		,"github" : {
+			"appId" : ""
+			,"appSecret" : ""
+		}
+		,"instagram" : {
+			"clientId" : ""
+			,"clientSecret" : ""
+		}
+		,"foursquare" : {
+			"clientId" : ""
+			,"clientSecret" : ""
+		}
+	}
+	,"mongoose" : {
+		"uri" : "mongodb://localhost/smo"
+	}
+	,"game" : {
+		"counters" : {
+			"tickSize" : 500
+			,"list" : {
+				"health-point" : 2
+				,"energy" : 5
+				,"adrenaline" : 2
+			}
+		}
+        ,"characterOfProfile" : 3
+	}
+	,"character" : {
+		"race" : [
+			"human"
+			,"raksasah"
+			,"seylees"
+		]
+		,"gender" : [
+			"male"
+			,"female"
+		]
+		,"avatarsCount" : 3
+		,"backpackSize" : 12
+		,"startEquipment" : [
+			"cheap-bracelets"
+			,"cheap-metal-bracelets"
+			,"cheap-armor"
+			,"cheap-stuff"
+			,"cheap-patronage"
+			,"curve-gosu"
+			,"gm-device"
+		]
+		,"baseEquipmentSlot" : {
+			"bracelets" : true
+			,"hands" : true
+			,"clothing" : true
+			,"amulet" : false
+			,"ring" : false
+			,"patronage" : true
+		}
+
+		,"maxModRate" : 4
+		,"maxStat" : {
+			"health-point" : 40000
+			,"attack" : 1000
+			,"armor" : 9000
+			,"resistance" : 1000
+			,"dodge-rate" : 0.7
+			,"block-rate" : 0.7
+			,"crit-rate" : 0.7
+			,"energy": 10000
+			,"adrenaline": 2000
+		}
+
+		,"baseStat" : {
+			"health-point" : 1000
+			,"attack" : 200
+			,"armor" : 100
+			,"resistance" : 15
+			,"dodge-rate" : 0.15
+			,"block-rate" : 0.15
+			,"crit-rate" : 0.15
+			,"energy": 100
+			,"adrenaline": 20
+		}
+
+		,"raceBaseMod" : {
+			"human": {
+				"health" : 2
+				,"fortitude" : 1
+				,"martial-arts" : 1
+			}
+			,"raksasah" : {
+				"health" : 1
+				,"fortitude" : 1
+				,"martial-arts" : 2
+			}
+			,"seylees" : {
+				"health" : 1
+				,"fortitude" : 2
+				,"martial-arts" : 1
+			}
+		}
+
+		,"modRate" : {
+			"health-point" : {
+				"health" : 0.2
+				,"fortitude" : 0
+				,"martial-arts" : 0
+			}
+			,"attack" : {
+				"health" : 0.1
+				,"fortitude" : 0
+				,"martial-arts" : 0.2
+			}
+			,"armor" : {
+				"health" : 0
+				,"fortitude" : 0.3
+				,"martial-arts" : 0
+			}
+			,"resistance" : {
+				"health" : 0
+				,"fortitude" : 0.5
+				,"martial-arts" : 0
+			}
+			,"dodge-rate" : {
+				"health" : 0
+				,"fortitude" : 0
+				,"martial-arts" : 0.01
+			}
+			,"block-rate" : {
+				"health" : 0
+				,"fortitude" : 0
+				,"martial-arts" : 0.02
+			}
+			,"crit-rate" : {
+				"health" : 0
+				,"fortitude" : 0
+				,"martial-arts" : 0.03
+			}
+			,"energy" : {
+				"health" : 0.2
+				,"fortitude" : 0.3
+				,"martial-arts" : 0.1
+			}
+			,"adrenaline" : {
+				"health" : 0.1
+				,"fortitude" : 0
+				,"martial-arts" : 0.2
+			}
+		}
+	}
+	,"battle" : {
+		"turnDuration" : 30000
+		,"penalty" : {
+			"escape" : [5, 10, 15, 20, 30]
+			,"death" : [1, 2, 3, 4, 5]
+			,"min" : 0.1
+		}
+	}
+	,"cron" : {
+	}
+	,"smtp" : {
+		"auth" : {
+			"user" : "no-reply@masters-way.sx"
+			,"pass" : "14ReP29R260"
+		}
+	}
+}

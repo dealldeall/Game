@@ -1,0 +1,11 @@
+{
+	"arenaEnemySearch" : {
+		"blockMove" : true
+		,"blockReEquipment" : true
+
+	}
+	,"inBattle" : {
+		"blockMove" : true
+		,"blockReEquipment" : true
+	}
+}

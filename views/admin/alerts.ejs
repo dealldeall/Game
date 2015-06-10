@@ -1,0 +1,68 @@
+<form method="POST" action="message/create">
+	<div class="row" class="span12">
+		<div class="span4">
+			<fieldset class="form-horizontal">
+
+				<legend>options</legend>
+
+				<div class="control-group">
+					<label class="control-label" for="inputName">
+						from name
+					</label>
+
+					<div class="controls">
+						<select name="name" class="input-small" id="inputName">
+							<option value="system">system</option>
+							<option value="admin">admin</option>
+							<option value="eventer">eventer</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label" for="inputType">
+						message type
+					</label>
+
+					<div class="controls">
+						<select name="type" class="input-small" id="inputType">
+							<option value="chat">chat</option>
+							<option value="message">message</option>
+							<option value="notice">notice</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="checkbox controls">
+						<input type="checkbox" name="only_online">
+						only online
+					</label>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label" for="inputCanal">
+					canal
+					</label>
+
+					<div class="controls">
+						<select name="canal" class="input-small" id="inputCanal">
+							<option value="ru">ru</option>
+							<option value="en">en</option>
+						</select>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+
+		<div class="span8">
+			<fieldset>
+				<legend>message</legend>
+				<div class="input-append">
+					<textarea name="message" class="wysihtml span7"></textarea>
+					<input type="submit" value="send" class="btn btn-primary btn-large span1">
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</form>

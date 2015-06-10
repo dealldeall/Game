@@ -1,0 +1,52 @@
+	<div>
+		<h2><a name="view">User <%=user.id%></a></h2>
+
+		<form method="POST" action="user/view" class="form-inline">
+			<fieldset>
+				<legend>profile</legend>
+
+					<label>
+						email
+						<br><input class="input-medium" name="email" type="email" value="<%=user.email%>">
+					</label>
+
+
+					<label>
+						username
+						<br><input class="input-small" name="name" type="text" value="<%=user.profile.username%>">
+					</label>
+
+					<label>
+						subscription
+						<br><input type="date" value="<%=user.subscriptionTo%>">
+					</label>
+
+					<label>
+						avatar
+						<br><select class="input-mini" name="avatar">
+							<option value="1" <%=(user.profile.username == 1) ? 'selected' : ''%>>1</option>
+							<option value="2" <%=(user.profile.username == 2) ? 'selected' : ''%>>2</option>
+						</select>
+					</label>
+
+					<label>
+						gender
+						<br><select class="input-small" name="gender">
+							<option value="male" <%=(user.profile.gender == 'male') ? 'selected' : '' %>>male</option>
+							<option value="female" <%=(user.profile.gender == 'female') ? 'selected' : ''%>>female</option>
+						</select>
+					</label>
+
+					<label>
+						race
+						<br><select class="input-small" name="race">
+							<option value="human" <%=(user.profile.race == 'female') ? 'selected' : ''%>>human</option>
+							<option value="raksasah" <%=(user.profile.race == 'raksasah') ? 'selected' : ''%>>raksasah</option>
+							<option value="seylees" <%=(user.profile.race == 'seylees') ? 'selected' : ''%>>seylees</option>
+						</select>
+					</label>
+			</fieldset>
+
+			<button class="btn btn-primary" type="submit">save</button>
+		</form>
+	</div>

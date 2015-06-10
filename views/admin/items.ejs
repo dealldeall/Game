@@ -1,0 +1,145 @@
+	<div>
+		<form method="POST" action="items" class="ajax">
+			<h2><a name="create">Create prototype</a></h2>
+
+			<label>
+				<span class="span2">items</span>
+				<select name="items">
+					<% for(var name in items) {
+						var item = items[name];
+					%>
+						<option value="<%= item.name %>"><%= item.name %></option>
+					<% } %>
+				</select>
+			</label>
+
+			<label>
+				<span class="span2">Name</span>
+				<input type="text" name="name" required>
+			</label>
+
+			<label for="type">
+				<span class="span2">Type</span>
+				<select name="type" id="type">
+					<optgroup label="Equipment">
+						<option value="bracelets">Браслеты</option>
+						<option value="hands">Руки</option>
+						<option value="clothing">Одежда</option>
+						<option value="patronage">Патронаж</option>
+						<option value="amulet">Амулет</option>
+						<option value="ring">Кольцо</option>
+					</optgroup>
+					<optgroup label="Items for Use">
+						<option value="potion">Зелье</option>
+						<option value="scroll">Свиток</option>
+						<option value="rod">Жезл</option>
+						<option value="rune">Руна</option>
+					</optgroup>
+					<optgroup label="Other">
+						<option value="quest">Квест предмет</option>
+						<option value="other">Другое</option>
+					</optgroup>
+				</select>
+			</label>
+
+			<label>
+				<span class="span2">Quality</span>
+				<select name="quality" id="quality">
+					<option value="gray">Ordinary (gray)</option>
+					<option value="green">Good (green)</option>
+					<option value="blue">Excellent (blue)</option>
+					<option value="purple">Unique (purple)</option>
+				</select>
+			</label>
+
+			<fieldset id="additional-options">
+				<legend>Additional Options</legend>
+
+				<%
+				var addOptions = {
+					light_armor: {
+						type: 'checkbox'
+					}
+					,extra_slots: {}
+				}
+
+				for(var name in addOptions) {
+					var addOption = addOptions[name];
+					if( addOption.type ) {
+						var type = addOption.type;
+					} else {
+						var type = 'number';
+					}
+				%>
+
+				<div class="options  <%=name %>">
+					<label>
+						<span class="span2"><%=name %></span>
+						<input name=" <%=name %>" type="<%=type %>">
+					</label>
+				</div>
+
+				<% } %>
+
+			</fieldset>
+
+			<fieldset id="base-mod">
+				<legend>Base mod</legend>
+
+				<%
+				var mods = {
+					health: {}
+					,fortitude: {}
+					,martial_arts: {}
+				}
+
+				for(var name in mods) {
+					var mod = mods[name];
+				%>
+
+				<div class="options <%=name %>">
+					<label>
+						<span class="span2"><%=name %></span>
+						<input name="<%=name %>" type="number">
+					</label>
+				</div>
+
+				<% } %>
+			</fieldset>
+
+			<fieldset id="base-stats">
+				<legend>Base stats</legend>
+
+				<%
+					var stats = {
+						health_point: {}
+						,attack: {}
+						,armor: {}
+						,resistance: {}
+						,dodge_rate: {}
+						,block_rate: {}
+						,critical_rate: {}
+						,energy: {}
+						,adrenaline: {}
+					}
+
+					for(var name in stats) {
+						var stat = stats[name];
+				%>
+
+				<div class="options <%=name %>">
+					<label>
+						<span class="span2"><%=name %></span>
+						<input name="<%=name %>" type="number">
+					</label>
+				</div>
+
+				<% } %>
+			</fieldset>
+
+			<br><input type="submit" class="btn btn-primary" value="save">
+		</form>
+	</div>
+
+	<h2><a name="edit">Edit prototype</a></h2>
+	<i>development...</i>

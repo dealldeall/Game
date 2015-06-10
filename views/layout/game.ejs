@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title> Masters Way - <%=title%> </title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+
+		<link rel="stylesheet" href="/css/normalize.css">
+		<link rel="stylesheet" href="/css/main.css">
+
+		<link rel="stylesheet" href="/css/layout/game.css">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+
+		<script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+		<script src="/js/game/main.js"></script>
+
+		<link rel="icon" type="image/png" href="/favicon.png">
+	</head>
+	<body>
+	<!--[if lt IE 7]>
+	<p class="chromeframe">
+		You are using an <strong>outdated</strong> browser.
+		Please <a href="http://browsehappy.com/">upgrade your browser</a>
+		or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.
+	<![endif]-->
+	<div id="wrapper" class="clearfix">
+		<aside id="button-panel" class="clearfix">
+			<ol class="no-style">
+				<li class="messages" title="messages"></li>
+				<li class="quest" title="quest"></li>
+				<li class="donate" title="donate"></li>
+
+				<li class="delimiter"></li>
+
+				<li class="exit" title="logout">
+					<a href="/auth/logout"></a>
+				</li>
+				<li class="options"></li>
+				<li class="sound"></li>
+			</ol>
+		</aside>
+
+		<div id="template" class="windows clearfix"></div>
+
+		<div id="battle" class="windows clearfix">
+			<div class="alcovd-arena">
+				<div class="enemies clearfix">
+					<%-widgets.battleForces%>
+				</div>
+
+				<div class="central-area clearfix">fight!</div>
+
+				<div class="comrades clearfix">
+					<%-widgets.battleForces%>
+				</div>
+				<div class="low-panel clearfix">
+					<div class="chat">
+						chat
+					</div>
+					<div class="extra-slots">
+						<ol class="no-style clearfix">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ol>
+					</div>
+					<div class="control-bar">
+						<div class="timer">
+							30
+						</div>
+
+						<div class="ui-form escape">
+							<form action="battle" class="socket">
+								<input type="hidden" name="action" value="escape">
+								<input type="submit" value="escape!!!">
+							</form>
+							Escape!!!
+						</div>
+
+						<div class="ui-form help disable">
+							<form action="battle" class="socket">
+								<input type="hidden" name="action" value="help">
+								<input type="submit" value="help">
+							</form>
+							Help
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer >
+	</footer>
+	</body>
+	</html>

@@ -1,0 +1,97 @@
+<div id="map-room-social" class="clearfix">
+
+	<section class="left">
+		<h2>Social apartment</h2>
+	</section>
+
+	<section class="central">
+		<div class="block loc-menu clearfix">
+			<div class="details">
+				<h2>Social apartment</h2>
+				<i>Free kennel for homeless</i>
+			</div>
+
+			<ol class="menu no-style horizontal clearfix">
+				<li class="ui-map-button ui-form exit ">
+					<form action="move" class="socket">
+						<input type="hidden" name="to" value="town">
+						<input type="submit" value="go town">
+					</form>
+					Go town
+				</li>
+
+				<li class="ui-map-button ui-form team">
+					<form action="show" class="widget">
+						<input type="hidden" name="widget" value="profile">
+						<input type="submit" value="profile">
+					</form>
+					Team
+				</li>
+
+				<li class="ui-map-button ui-form warehouse little-label">
+					<form action="show" class="widget">
+						<input type="hidden" name="widget" value="warehouse">
+						<input type="submit" value="warehouse">
+					</form>
+					Warehouse
+				</li>
+
+				<li class="ui-map-button ui-form slaves">
+					<form action="show" class="widget">
+						<input type="hidden" name="widget" value="slaves">
+						<input type="submit" value="slaves">
+					</form>
+					Slaves
+				</li>
+			</ol>
+		</div>
+	</section>
+
+	<div id="widgets">
+		<%-widgets.characterProfile%>
+		<div class="widget warehouse clearfix">
+			<div class="actions-panel">
+				<ol class="no-style">
+					<li class="ui-form close">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+							<g fill="#fff">
+								<g transform="matrix(7.5 0 0 7.50001 -12524.0018 -3436.71945)">
+									<path d="m1686,806 10,10-10,10 8,8 10-10 10,10 8-8-10-10 10-10-8-8-10,10-10-10z" transform="translate(0 -323.6378)"/>
+								</g>
+							</g>
+						</svg>
+
+						<form action="hide" class="widget">
+							<input type="hidden" name="widget" value="warehouse">
+							<input type="submit" value="close">
+						</form>
+					</li>
+				</ol>
+			</div>
+			warehouse
+			<br><i>in developing</i>
+		</div>
+		<div class="widget slaves clearfix">
+			<div class="actions-panel">
+				<ol class="no-style">
+					<li class="ui-form close">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+							<g fill="#fff">
+								<g transform="matrix(7.5 0 0 7.50001 -12524.0018 -3436.71945)">
+									<path d="m1686,806 10,10-10,10 8,8 10-10 10,10 8-8-10-10 10-10-8-8-10,10-10-10z" transform="translate(0 -323.6378)"/>
+								</g>
+							</g>
+						</svg>
+
+						<form action="hide" class="widget">
+							<input type="hidden" name="widget" value="slaves">
+							<input type="submit" value="close">
+						</form>
+					</li>
+				</ol>
+			</div>
+			Slaves
+			<br><i>in developing</i>
+		</div>
+	</div>
+</div>

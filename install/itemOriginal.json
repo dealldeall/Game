@@ -1,0 +1,88 @@
+	[{
+		"name" : "cheap-bracelets"
+		,"type" : "bracelets"
+		,"quality" : "gray"
+		,"data" : {
+			"baseBonus" : {
+				"adrenaline" : 100
+				,"attack" : 5
+			}
+		}
+	}
+	,{
+		"name" : "cheap-metal-bracelets"
+		,"type" : "bracelets"
+		,"quality" : "gray"
+		,"data" : {
+			"baseBonus" : {
+				"adrenaline" : 60
+				,"block-rate" : 0.01
+				,"armor" : 20
+			}
+		}
+	}
+	,{
+		"name" : "cheap-armor"
+		,"type" : "clothing"
+		,"quality" : "gray"
+		,"data" : {
+			"baseBonus" : {
+				"armor" : 250
+			}
+		}
+	}
+	,{
+		"name" : "gm-device"
+		,"type" : "other"
+		,"quality" : "blue"
+		,"data" : {
+			"accesLvl": "tester"
+		}
+	}
+	,{
+		"name" : "cheap-stuff"
+		,"type" : "hands"
+		,"quality" : "gray"
+		,"data" : {
+			"baseBonus" : {
+				"attack" : 200
+			}
+		}
+	}
+	,{
+		"name" : "cheap-patronage"
+		,"type" : "patronage"
+		,"quality" : "gray"
+		,"data" : {
+			"addBonus" : {
+				"extra-slot" : 1
+			}
+		}
+	}
+	,{
+		"name" : "curve-gosu"
+		,"type" : "amulet"
+		,"quality" : "purple"
+		,"data" : {
+			"baseMod" : {
+				"health" : 20
+				,"fortitude" : 20
+				,"martial-arts" : 20
+			}
+			,"baseBonus" : {
+				"health-point" : 100000
+				,"attack" : 20000
+				,"armor" : 10000
+				,"resistance" : 1500
+				,"dodge-rate" : 15
+				,"block-rate" : 15
+				,"crit-rate" : 15
+				,"energy" : 10000
+				,"adrenaline" : 2000
+			}
+			,"addBonus" : {
+				"extra-slot" : 10
+			}
+		}
+	}
+]

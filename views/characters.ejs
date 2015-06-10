@@ -1,0 +1,112 @@
+<div id="select-characters">
+    <h2><%- __( 'site-menu: characters')%></h2>
+    <ul class="col-md-12">
+
+        <%/* for( var idx = 0; profiles < profiles.length; idx++) { */%>
+        <% for( var idx in profiles) { %>
+
+            <% var profile = profiles[ idx] %>
+
+            <% if( profile == null) {%>
+
+                <li class="avatar empty" data-profile-idx="<%= idx %>">
+                    <div>
+                        <%= __( 'button: create')%>
+                    </div>
+                </li>
+            <% } else { %>
+
+                <li class="avatar"
+                    data-profile-idx="<%= idx %>"
+                    data-profile-gender="<%= profile.gender %>"
+                    data-profile-race="<%= profile.race %>"
+                    data-profile-avatar="<%= profile.avatar%>"
+                >
+                    <div>
+                        <%= profile.nickname%>
+                    </div>
+                </li>
+            <% } %>
+        <% } %>
+    </ul>
+</div>
+
+<div id="registration">
+
+    <h2 class="text-center"><%= __('site-menu: registration')%></h2>
+
+    <div class="clearfix">
+        <aside class="col-sm-offset-2 col-md-4 text-center">
+
+            <div class="race">
+
+                <span id="race-prev" class="font-icon icon-left-dir"></span>
+                <div class="race-name">
+                    <ol id="race-list" class="no-style">
+                        <% for( var idx in race) { %>
+                        <li data-race-idx="<%= idx %>">
+                            <%= __( 'race: ' + race[ idx]) %>
+                        </li>
+                        <% } %>
+                    </ol>
+                    <div class="clearfix"></div>
+                </div>
+                <span id="race-next" class="font-icon icon-right-dir"></span>
+            </div>
+
+            <div class="image-block">
+                <span id="reg-image-prev" class="font-icon icon-left-dir"></span>
+
+                <div id="reg-image" class="ui-avatar" data-count="<%= avatarsCount%>"></div>
+
+                <span id="reg-image-next" class="font-icon icon-right-dir"></span>
+            </div>
+
+            <span id="gender-prev" class="font-icon icon-left-dir"></span>
+            <div class="gender">
+                <ol id="gender-list" class="no-style">
+                    <% for( var idx in gender) { %>
+                    <li data-gender-idx="<%= idx %>">
+                        <%- __( 'gender: ' + gender[ idx])%>
+                        <span class="font-icon icon-<%= gender[ idx]%>"></span>
+                    </li>
+                    <% } %>
+                </ol>
+            </div>
+            <span id="gender-next" class="font-icon icon-right-dir"></span>
+        </aside>
+
+        <aside class="col-md-4">
+
+            <br>
+            <div class="form-group">
+                <input id="input-nickname" type="text" name="username" class="form-control" placeholder="<%= __( 'site-req: nickname')%>">
+            </div>
+
+            <br>
+            <div id="race-description" class="race-description col-md-12">
+                <ol class="no-style">
+                    <% for( var idx in race) { %>
+
+                    <li>
+                        <p><%- __( 'site-req: ' + race[ idx] + '-brief-description')%>
+                        <div>
+                            <i><%- __( 'site-req: ' + race[ idx] + '-bonus')%></i>
+                        </div>
+                    </li>
+                    <% } %>
+                </ol>
+            </div>
+
+            <div>
+                <button id="registration-form-success" type="button" class="btn btn-large btn-success">
+                    <%= __( 'site-req: button-submit')%>
+                </button>
+
+                <button id="registration-form-cancel" type="button" class="btn btn-large btn-warning">
+                    <%= __( 'button: cancel')%>
+                </button>
+            </div>
+        </aside>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<aside id="news" class="col-md-6">
+	<h2><%- __( 'site-index: news-header') %></h2>
+	<%- __( 'site-index: news-content') %>
+</aside>
+
+<aside id="social" class="col-md-6">
+	<% if( isGuest){ %>
+	<h2><%- __( 'site-index: login_registration') %> <span class="font-icon icon-level-down"></span></h2>
+	<div class="font-icon icon-right"></div>
+	<ol class="no-style">
+		<li class="hidden">
+			<!-- google+ -->
+			<a href="<%= oauthUri.gl%>" class="google" title="google+"></a>
+		</li>
+		<li>
+			<!-- vk -->
+			<a href="<%= oauthUri.vk%>" class="vkontakte" title="vkontakte"></a>
+		</li>
+        <li class="hidden">
+			<!-- tw -->
+			<a href="<%= oauthUri.tw%>" class="twitter" title="twitter"></a>
+		</li>
+        <li>
+			<!-- fb -->
+			<a href="<%= oauthUri.fb%>" class="facebook" title="facebook"></a>
+		</li>
+	</ol>
+	<% } else { %>
+		<a href="/game" class="in-game">
+			<%- __( 'site-index: in-game') %>
+		</a>
+	<% } %>
+	<div class="for-adult-text">
+		18+ <%- __( 'site-index: for-adult') %>
+	</div>
+<aside>
